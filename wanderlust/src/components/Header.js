@@ -17,11 +17,6 @@ const Header = () => {
               Experiences
             </Menu.Item>
           </Link>
-          <Link exact to ="/about">
-            <Menu.Item>
-              About Us
-            </Menu.Item>
-          </Link>  
           <Link exact to ="/contact">
             <Menu.Item>
               Contact
