@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <Segment>
       <Header as="h1">
-        Honey & Hemp
+        WanderLust
       </Header>
       <Segment>
         <Placeholder fluid>
