@@ -1,13 +1,19 @@
 import React from 'react'
-import { Segment, Header, Placeholder } from 'semantic-ui-react';
+import { Segment, Header, Placeholder } from 'semantic-ui-react'
+import ContactForm from './ContactForm'
 
-const HomePage = () => {
-  return (
-    <Segment>
-      <Header as="h1">
-        Wanderlust
-      </Header>
+class ContactPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {  };
+  }
+  render() {
+    return (
       <Segment>
+        <Header dividing as="h3">
+          Contact Us
+        </Header>
+        <Segment>
         <Placeholder fluid>
           <Placeholder.Header image>
             <Placeholder.Line />
@@ -17,15 +23,13 @@ const HomePage = () => {
             <Placeholder.Line />
             <Placeholder.Line />
             <Placeholder.Line />
-            <Placeholder.Line />
-            <Placeholder.Line />
-            <Placeholder.Line />
-            <Placeholder.Line />
           </Placeholder.Paragraph>
         </Placeholder>
       </Segment>
-    </Segment>
-  )
+        <ContactForm />
+      </Segment>
+    );
+  }
 }
 
-export default HomePage;
+export default ContactPage;

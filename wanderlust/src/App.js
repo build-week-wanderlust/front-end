@@ -4,12 +4,18 @@ import logo from './logo.svg';
 import { Route, Link } from 'react-router-dom'
 import { Container } from 'semantic-ui-react'
 import Header from './components/Header'
+import HomePage from './components/HomePage'
+import TripContainer from './containers/TripContainer'
+import ContactPage from './components/ContactPage'
 
 function App() {
   return (
-    <Container className="App">
+    <Container className="app">
       <Header />
-    </Container>
+      <Route exact path="/" component={HomePage}/>
+      <Route exact path="/experiences" component={TripContainer} />  
+      <Route exact path="/contact" component={ContactPage} />
+  </Container>
   );
 }
 

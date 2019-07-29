@@ -6,36 +6,31 @@ import '../styles/Header.css'
 
 const Header = () => {
   return (
-    <Segment className="header-menu">
-        <Menu>
+        <Menu fluid className="header-menu">
           <Link exact to="/">
-            <Menu.Item as="a" header>
-              Wanderlust
+            <Menu.Item header>
+              Wanderlust 
             </Menu.Item>
           </Link>
           <Link exact to="/experiences">
-            <Menu.Item as="a">
+            <Menu.Item>
               Experiences
             </Menu.Item>
           </Link>
-          <Link exact to="/blog">
-            <Menu.Item as="a">
-              Our Blog
-            </Menu.Item>
-          </Link>
           <Link exact to ="/about">
-            <Menu.Item as="a">
+            <Menu.Item>
               About Us
             </Menu.Item>
           </Link>  
           <Link exact to ="/contact">
-            <Menu.Item as="a">
+            <Menu.Item>
               Contact
             </Menu.Item>
           </Link>
+          <Menu.Item position='right'>
+            <SearchBar/>
+          </Menu.Item>
         </Menu>
-        <SearchBar/>
-    </Segment>
   )
 }
 
