@@ -1,5 +1,5 @@
 import React from 'react'
-import { Segment, Form, Button } from 'semantic-ui-react';
+import { Segment, Form } from 'semantic-ui-react';
 
 class ContactForm extends React.Component {
   constructor() {
@@ -12,7 +12,7 @@ class ContactForm extends React.Component {
       agreed: false,
     }
   }
-
+  
   handleTextChange = e => {
     this.setState({
       [e.target.name]: e.target.value,
@@ -27,9 +27,10 @@ class ContactForm extends React.Component {
   //   )
   //   console.log(value)
   // }
-
+  
   render() {
-    const { value } = this.state
+    // const { value } = this.state
+    console.log('clicked', this.state.clicked)
     return (
       <Segment>
 
@@ -61,6 +62,11 @@ class ContactForm extends React.Component {
           />
           <Form.Checkbox 
             label='I agree to the Terms and Conditions'
+            onClick={() => {
+              return this.setState({
+                ...this.state,
+                clicked: !this.state.clicked
+            })}}
           />
           <Form.Button>Submit</Form.Button>
         </Form>

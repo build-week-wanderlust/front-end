@@ -5,18 +5,16 @@ const ExperienceList = (props) => {
   return (
     <Segment>
       <Grid columns={3} stackable>
-        <Grid.Column>
-          <Segment raised>
           {props.experiences.map(i => {
               return (
-                <div>
-                  {i.title}
-                  {i.state}
-                </div>
-                )
+                <Grid.Column>
+                  <Segment raised>
+                    {i.title}
+                    {i.state}
+                  </Segment>
+                </Grid.Column>
+              )  
             })}
-          </Segment>
-        </Grid.Column>
       </Grid>
     </Segment>
   )

@@ -1,9 +1,10 @@
 import React, { useState, useEffect} from 'react'
 import { Redirect } from 'react-router-dom'
-import { Segment, Header, Menu, Dropdown } from 'semantic-ui-react'
+import { Segment, Header, Menu, Dropdown, Image } from 'semantic-ui-react'
 import ExperienceList from '../components/ExperienceList'
 import axios from 'axios'
 import '../styles/TripContainer.css'
+import Loader from 'react-loader-spinner'
 
 
 const TripContainer = () => {
@@ -36,7 +37,7 @@ const TripContainer = () => {
   if(!token){
    return <Redirect to="/"/>
   } else if(!data){
-    return <h3>loading...</h3>
+    return <Segment loading padded='very'></Segment>
   }
   return (
     

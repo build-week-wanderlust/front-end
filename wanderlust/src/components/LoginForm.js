@@ -1,13 +1,14 @@
 import React, {useState} from 'react'
 import axios from 'axios'
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
+import { Redirect } from 'react-router-dom'
 
 const LoginForm = (props) => {
   const [input, setInput] = useState({
     username: '',
     password: ''
   })
-  
+  const token = window.localStorage.getItem('token')
   console.log('state',input)
   
   const handleChange = e => {
@@ -37,7 +38,9 @@ const LoginForm = (props) => {
       console.error(err)
     })
   }
-
+  if(token){
+    return <Redirect to="/experiences"/>
+  }
   return (   
     <Grid textAlign='center' style={{ height: '44vh' }}>
       <Grid.Column style={{ maxWidth: 450 }}>
