@@ -1,12 +1,6 @@
 import React from 'react'
 import { Segment, Form, Button } from 'semantic-ui-react';
 
-const options = [
-  { key: 'm', text: 'Male', value: 'male' },
-  { key: 'f', text: 'Female', value: 'female' },
-  { key: 'o', text: 'Other', value: 'other' },
-]
-
 class ContactForm extends React.Component {
   constructor() {
     super();
@@ -15,7 +9,7 @@ class ContactForm extends React.Component {
       lastName: '',
       email: '',
       messageText: '',
-
+      agreed: false,
     }
   }
 
@@ -25,14 +19,14 @@ class ContactForm extends React.Component {
     })
     console.log('Text Input', e.target.value)
   }
-  handleChange = (e, { value }) => {
-    this.setState(
-      { 
-        value 
-      }
-    )
-    console.log(value)
-  }
+  // handleChange = (e, { value }) => {
+  //   this.setState(
+  //     { 
+  //       value 
+  //     }
+  //   )
+  //   console.log(value)
+  // }
 
   render() {
     const { value } = this.state
@@ -59,27 +53,6 @@ class ContactForm extends React.Component {
               fluid label='Email' 
               placeholder='Email'
            />
-          </Form.Group>
-          <Form.Group inline>
-            <label>Size</label>
-            <Form.Radio
-              label='Small'
-              value='sm'
-              checked={value === 'sm'}
-              onChange={this.handleChange}
-            />
-            <Form.Radio
-              label='Medium'
-              value='md'
-              checked={value === 'md'}
-              onChange={this.handleChange}
-            />
-            <Form.Radio
-              label='Large'
-              value='lg'
-              checked={value === 'lg'}
-              onChange={this.handleChange}
-            />
           </Form.Group>
           <Form.TextArea 
             label='Message' 
