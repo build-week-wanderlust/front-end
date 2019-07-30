@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import { Segment, Header, Menu, Dropdown } from 'semantic-ui-react'
 import ExperienceList from '../components/ExperienceList'
 import axios from 'axios'
+import '../styles/TripContainer.css'
 
 
 const TripContainer = () => {
@@ -43,24 +44,26 @@ const TripContainer = () => {
       <Header dividing as="h3">
         Experiences
       </Header>
-      <Menu vertical>
-        <Dropdown item text='Filter: '>
-          <Dropdown.Menu>
-            {states.map(state => {
-              return <Dropdown.Item onClick={() => filterStates(state)}>{state}</Dropdown.Item>
-            })}
-          </Dropdown.Menu>
-        </Dropdown>
-      </Menu>
-      <Menu vertical>
-        <Dropdown item text='Sort by:'>
-          <Dropdown.Menu>
-            <Dropdown.Item onClick={() => sortBy('state')}>State</Dropdown.Item>
-            <Dropdown.Item onClick={() => sortBy('price')}>Price</Dropdown.Item>
+      <div className="filter-menu">
+        <Menu vertical>
+          <Dropdown item text='Filter: '>
+            <Dropdown.Menu>
+              {states.map(state => {
+                return <Dropdown.Item onClick={() => filterStates(state)}>{state}</Dropdown.Item>
+              })}
+            </Dropdown.Menu>
+          </Dropdown>
+        </Menu>
+        <Menu vertical>
+          <Dropdown item text='Sort by:'>
+            <Dropdown.Menu>
+              <Dropdown.Item onClick={() => sortBy('state')}>State</Dropdown.Item>
+              <Dropdown.Item onClick={() => sortBy('price')}>Price</Dropdown.Item>
 
-          </Dropdown.Menu>
-        </Dropdown>
-      </Menu>
+            </Dropdown.Menu>
+          </Dropdown>
+        </Menu>
+      </div>
       <ExperienceList experiences={data}/>
     </Segment>
   )
