@@ -1,11 +1,5 @@
 import React from 'react'
-import { Segment, Form, Button } from 'semantic-ui-react';
-
-const options = [
-  { key: 'm', text: 'Male', value: 'male' },
-  { key: 'f', text: 'Female', value: 'female' },
-  { key: 'o', text: 'Other', value: 'other' },
-]
+import { Segment, Form } from 'semantic-ui-react';
 
 class ContactForm extends React.Component {
   constructor() {
@@ -15,27 +9,28 @@ class ContactForm extends React.Component {
       lastName: '',
       email: '',
       messageText: '',
-
+      agreed: false,
     }
   }
-
+  
   handleTextChange = e => {
     this.setState({
       [e.target.name]: e.target.value,
     })
     console.log('Text Input', e.target.value)
   }
-  handleChange = (e, { value }) => {
-    this.setState(
-      { 
-        value 
-      }
-    )
-    console.log(value)
-  }
-
+  // handleChange = (e, { value }) => {
+  //   this.setState(
+  //     { 
+  //       value 
+  //     }
+  //   )
+  //   console.log(value)
+  // }
+  
   render() {
-    const { value } = this.state
+    // const { value } = this.state
+    console.log('clicked', this.state.clicked)
     return (
       <Segment>
 
@@ -60,27 +55,6 @@ class ContactForm extends React.Component {
               placeholder='Email'
            />
           </Form.Group>
-          <Form.Group inline>
-            <label>Size</label>
-            <Form.Radio
-              label='Small'
-              value='sm'
-              checked={value === 'sm'}
-              onChange={this.handleChange}
-            />
-            <Form.Radio
-              label='Medium'
-              value='md'
-              checked={value === 'md'}
-              onChange={this.handleChange}
-            />
-            <Form.Radio
-              label='Large'
-              value='lg'
-              checked={value === 'lg'}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
           <Form.TextArea 
             label='Message' 
             placeholder='Tell us how we could help you...'
@@ -88,6 +62,11 @@ class ContactForm extends React.Component {
           />
           <Form.Checkbox 
             label='I agree to the Terms and Conditions'
+            onClick={() => {
+              return this.setState({
+                ...this.state,
+                clicked: !this.state.clicked
+            })}}
           />
           <Form.Button>Submit</Form.Button>
         </Form>

@@ -23,10 +23,11 @@ const Header = () => {
             </Menu.Item>
           </Link>
           <Menu.Item position='right'>
-            <SearchBar/>
+            <SearchBar />
           </Menu.Item>
         </Menu>
   )
 }
+
 
 export default Header

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Segment, Header, Placeholder } from 'semantic-ui-react';
+import FormContainer from '../containers/FormContainer'
 
 const HomePage = () => {
   return (
@@ -8,21 +9,7 @@ const HomePage = () => {
         Wanderlust
       </Header>
       <Segment>
-        <Placeholder fluid>
-          <Placeholder.Header image>
-            <Placeholder.Line />
-            <Placeholder.Line />
-          </Placeholder.Header>
-          <Placeholder.Paragraph>
-            <Placeholder.Line />
-            <Placeholder.Line />
-            <Placeholder.Line />
-            <Placeholder.Line />
-            <Placeholder.Line />
-            <Placeholder.Line />
-            <Placeholder.Line />
-          </Placeholder.Paragraph>
-        </Placeholder>
+        <FormContainer />
       </Segment>
     </Segment>
   )
