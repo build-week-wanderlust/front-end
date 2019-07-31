@@ -38,9 +38,10 @@ const TripContainer = () => {
 
   if(!token){
    return <Redirect to="/"/>
-  } else if(!data){
-    return <Segment loading padded='very'></Segment>
-  }
+  } 
+  // else if(!data){
+  //   return <Segment loading padded='very'></Segment>
+  // }
   return (
     
     <Segment>
@@ -58,7 +59,7 @@ const TripContainer = () => {
         </Menu>
         <p>{filter.filteredContentLabel}</p>
       </div>
-      <ExperienceList experiences={data}/>
+      {!data ? <Segment loading padded='very'></Segment> : <ExperienceList experiences={data}/>}
       <Link to="/new_experience">
         <Button color='teal' fluid>Add New Experience</Button>
       </Link>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Segment, Header } from 'semantic-ui-react'
+import { Segment, Header, Container } from 'semantic-ui-react'
 import axios from 'axios'
 
 const ExperienceDetail = props => {
@@ -13,13 +13,17 @@ const ExperienceDetail = props => {
     })
   }, [])
   console.log(props.match.params)
-  if(!info){
-    return <Segment loading padded='very'></Segment>
-  }
+  
   return (
     <Segment>
-      <Header dividing as="h3">{info.title}</Header>
-      <p>{info.description}</p>
+      <Header dividing as="h3">Trip Details</Header>
+      <Container text>
+      {!info ? <Segment loading padded='very'></Segment> : <Segment>
+        <Header dividing as='h3'>{info.title}</Header>
+        {info.description}
+      </Segment>}
+      
+      </Container>
     </Segment>
   )
 }
