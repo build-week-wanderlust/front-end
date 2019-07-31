@@ -59,7 +59,7 @@ const TripContainer = () => {
         <p>{filter.filteredContentLabel}</p>
       </div>
       <ExperienceList experiences={data}/>
-      <Link to="/experiences/new_experience">
+      <Link to="/new_experience">
         <Button color='teal' fluid>Add New Experience</Button>
       </Link>
     </Segment>

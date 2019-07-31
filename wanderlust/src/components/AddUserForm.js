@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 import React, { useState } from 'react'
 import axios from 'axios'
 
-const AddUserForm = () => {
+const AddUserForm = (props) => {
   const [input, setInput] = useState({
     username: '',
     password: ''
@@ -24,10 +24,26 @@ const AddUserForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     axios
-    .post('https://brudnak-wanderlust.herokuapp.com/createnewuser', { input })
+    .post('https://brudnak-wanderlust.herokuapp.com/createnewuser', input)
     .then(res => {
       console.log(res)
-      e.target.reset();
+      axios
+    .post('https://brudnak-wanderlust.herokuapp.com/login', `grant_type=password&username=${input.username}&password=${input.password}`, {
+      headers: {
+        // btoa is converting our client id/client secret into base64
+        Authorization: `Basic ${btoa('lambda-client:lambda-secret')}`,
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    })
+    .then(res => {
+      console.log(res)
+      window.localStorage.setItem('token', JSON.stringify(res.data.access_token))
+      props.history.push('/experiences')
+    })
+    .catch(err => {
+      console.error(err)
+    })
+      // e.target.reset();
     })
   }
 

@@ -1,14 +1,14 @@
-import React from 'react'
-import { Segment, Form } from 'semantic-ui-react';
+import React from "react"
+import { Segment, Form } from "semantic-ui-react";
 
 class ContactForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      messageText: '',
+      firstName: "",
+      lastName: "",
+      email: "",
+      messageText: "",
       agreed: false,
     }
   }
@@ -17,7 +17,7 @@ class ContactForm extends React.Component {
     this.setState({
       [e.target.name]: e.target.value,
     })
-    console.log('Text Input', e.target.value)
+    console.log("Text Input", e.target.value)
   }
   // handleChange = (e, { value }) => {
   //   this.setState(
@@ -29,43 +29,43 @@ class ContactForm extends React.Component {
   // }
   
   render() {
-    console.log('clicked', this.state.clicked)
+    console.log("clicked", this.state.clicked)
     return (
       <Segment>
 
-        <Form action="https://formspree.io/wanderlust.lambda@gmail.com" method='POST' onSubmit={(e) => {
+        <Form action="https://formspree.io/wanderlust.lambda@gmail.com" method="POST" onSubmit={(e) => {
           // e.preventDefault();
         }}>
-          <Form.Group widths='equal'>
+          <Form.Group widths="equal">
             <Form.Input 
               required 
               onChange={this.handleTextChange} 
-              fluid label='First name' 
-              placeholder='First name' 
-              name='firstName'
+              fluid label="First name" 
+              placeholder="First name" 
+              name="firstName"
             />
             <Form.Input 
               required 
               onChange={this.handleTextChange}
-              fluid label='Last name'
-              placeholder='Last name' 
-              name='lastName'
+              fluid label="Last name"
+              placeholder="Last name" 
+              name="lastName"
             />
             <Form.Input 
               required 
               onChange={this.handleTextChange}
-              fluid label='Email' 
-              placeholder='Email'
-              name='email'
+              fluid label="Email" 
+              placeholder="Email"
+              name="email"
            />
           </Form.Group>
           <Form.TextArea 
-            label='Message' 
-            placeholder='Tell us how we could help you...'
+            label="Message" 
+            placeholder="Tell us how we could help you..."
             onChange={this.handleTextChange}
           />
           <Form.Checkbox 
-            label='I agree to the Terms and Conditions'
+            label="I agree to the Terms and Conditions"
             onClick={() => {
               return this.setState({
                 ...this.state,

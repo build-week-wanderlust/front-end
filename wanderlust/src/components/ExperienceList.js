@@ -1,5 +1,6 @@
 import React from 'react'
 import { Segment, Grid } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 const ExperienceList = (props) => {
   return (
@@ -8,10 +9,12 @@ const ExperienceList = (props) => {
           {props.experiences.map(i => {
               return (
                 <Grid.Column>
-                  <Segment raised color="teal">
-                    {i.title}
-                    {i.state}
-                  </Segment>
+                  <Link to={`/experiences/${i.experienceid}`}>
+                    <Segment raised color="teal">
+                      <p>{i.title}</p>
+                      <p>{i.state}</p>
+                    </Segment>
+                  </Link>
                 </Grid.Column>
               )  
             })}
