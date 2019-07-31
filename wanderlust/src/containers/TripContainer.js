@@ -10,7 +10,7 @@ import Loader from 'react-loader-spinner'
 const TripContainer = () => {
   const [data, setData] = useState()
   useEffect(() => {
-    axios.get('http://brudnak-wanderlust.herokuapp.com/experiences/experiences')
+    axios.get('https://brudnak-wanderlust.herokuapp.com/experiences/experiences')
     .then(res => {
       console.log(res)
       setData(res.data)
