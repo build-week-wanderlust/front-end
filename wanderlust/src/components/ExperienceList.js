@@ -1,5 +1,5 @@
 import React from 'react'
-import { Segment, Grid, Placeholder } from 'semantic-ui-react'
+import { Segment, Grid } from 'semantic-ui-react'
 
 const ExperienceList = (props) => {
   return (
@@ -8,7 +8,7 @@ const ExperienceList = (props) => {
           {props.experiences.map(i => {
               return (
                 <Grid.Column>
-                  <Segment raised>
+                  <Segment raised color="teal">
                     {i.title}
                     {i.state}
                   </Segment>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Segment, Search } from 'semantic-ui-react'
+import { Search } from 'semantic-ui-react'
 
 
 class SearchBar extends React.Component {

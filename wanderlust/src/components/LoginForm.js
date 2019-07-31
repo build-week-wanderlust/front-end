@@ -1,7 +1,7 @@
+import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
+import { Redirect, Link } from 'react-router-dom'
 import React, {useState} from 'react'
 import axios from 'axios'
-import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
-import { Redirect } from 'react-router-dom'
 
 const LoginForm = (props) => {
   const [input, setInput] = useState({
@@ -73,7 +73,7 @@ const LoginForm = (props) => {
           </Segment>
         </Form>
         <Message>
-          New to us? <a href='#'>Sign Up</a>
+          New to us? <Link to="/new_user">Sign Up</Link>
         </Message>
       </Grid.Column>
     </Grid>
