@@ -42,41 +42,44 @@ const LoginForm = (props) => {
     return <Redirect to="/experiences"/>
   }
   return (   
-    <Grid textAlign='center' style={{ height: '44vh' }}>
-      <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as='h2' textAlign='center'>
-        Log-in to Wanderlust
-        </Header>
-        <Form size='large' onSubmit={handleLoginSubmit}>
-          <Segment stacked>
-            <Form.Input 
-              fluid icon='user' 
-              iconPosition='left' 
-              placeholder='Username' 
-              onChange={handleChange}
-              name="username"
-              value={input.username}
-            />
-            <Form.Input
-              fluid
-              icon='lock'
-              iconPosition='left'
-              placeholder='Password'
-              name='password'
-              value={input.password}
-              onChange={handleChange}
-              type='password'
-            />
-            <Button color='teal' fluid size='large' onClick={handleLoginSubmit}>
-              Login
-            </Button>
-          </Segment>
-        </Form>
-        <Message>
-          New to us? <Link to="/new_user">Sign Up</Link>
-        </Message>
-      </Grid.Column>
-    </Grid>
+    <Segment>
+      <Header dividing as="h3">Log In</Header>
+      <Grid textAlign='center' style={{ height: '44vh' }}>
+        <Grid.Column style={{ maxWidth: 450 }}>
+          <Header as='h2' textAlign='center'>
+          Log-in to Wanderlust
+          </Header>
+          <Form size='large' onSubmit={handleLoginSubmit}>
+            <Segment stacked>
+              <Form.Input 
+                fluid icon='user' 
+                iconPosition='left' 
+                placeholder='Username' 
+                onChange={handleChange}
+                name="username"
+                value={input.username}
+              />
+              <Form.Input
+                fluid
+                icon='lock'
+                iconPosition='left'
+                placeholder='Password'
+                name='password'
+                value={input.password}
+                onChange={handleChange}
+                type='password'
+              />
+              <Button color='teal' fluid size='large' onClick={handleLoginSubmit}>
+                Login
+              </Button>
+            </Segment>
+          </Form>
+          <Message>
+            New to us? <Link to="/new_user">Sign Up</Link>
+          </Message>
+        </Grid.Column>
+      </Grid>
+    </Segment>
     )
 }
 

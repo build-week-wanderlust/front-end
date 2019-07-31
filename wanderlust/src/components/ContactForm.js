@@ -29,30 +29,34 @@ class ContactForm extends React.Component {
   // }
   
   render() {
-    // const { value } = this.state
     console.log('clicked', this.state.clicked)
     return (
       <Segment>
 
-        <Form>
+        <Form action="https://formspree.io/wanderlust.lambda@gmail.com" method='POST' onSubmit={(e) => {
+          // e.preventDefault();
+        }}>
           <Form.Group widths='equal'>
             <Form.Input 
               required 
               onChange={this.handleTextChange} 
               fluid label='First name' 
               placeholder='First name' 
+              name='firstName'
             />
             <Form.Input 
               required 
               onChange={this.handleTextChange}
               fluid label='Last name'
               placeholder='Last name' 
+              name='lastName'
             />
             <Form.Input 
               required 
               onChange={this.handleTextChange}
               fluid label='Email' 
               placeholder='Email'
+              name='email'
            />
           </Form.Group>
           <Form.TextArea 
@@ -68,7 +72,7 @@ class ContactForm extends React.Component {
                 clicked: !this.state.clicked
             })}}
           />
-          <Form.Button>Submit</Form.Button>
+          <Form.Button color="teal">Submit</Form.Button>
         </Form>
       </Segment>
     )

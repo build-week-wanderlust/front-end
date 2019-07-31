@@ -21,10 +21,14 @@ const AddUserForm = () => {
     });
   }
 
-  handleSubmit = e => {
-    e.prefentDefault();
+  const handleSubmit = e => {
+    e.preventDefault();
     axios
-    .post('https://brudnak-wanderlust.herokuapp.com/users/user')
+    .post('https://brudnak-wanderlust.herokuapp.com/createnewuser', { input })
+    .then(res => {
+      console.log(res)
+      e.target.reset();
+    })
   }
 
   if(token){
@@ -38,7 +42,7 @@ const AddUserForm = () => {
       <Header as='h2' textAlign='center'>
          Create New User
       </Header>
-      <Form size='large'>
+      <Form size='large' onSubmit={handleSubmit}>
         <Segment stacked>
           <Form.Input 
             fluid icon='user' 
@@ -59,7 +63,7 @@ const AddUserForm = () => {
             value={input.password}
           />
 
-          <Button color='teal' fluid size='large'>
+          <Button color='teal' fluid size='large' onClick={handleSubmit}>
             Sign Up!
           </Button>
         </Segment>
