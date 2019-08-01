@@ -67,7 +67,7 @@ const AddExperienceForm = () => {
           <Form.TextArea 
             required
             label="Description" 
-            placeholder="Tell us how we could help you..."
+            placeholder="Description..."
             onChange={handleTextChange}
             name="description"
             value={input.description}
@@ -76,14 +76,14 @@ const AddExperienceForm = () => {
             label="Private"
             name="private"
             value={input.triptype}
-            checked={input.triptype === 'private'}
+            // checked={input.triptype === 'private'}
             onChange={handleClickChange}
           />
           <Form.Radio 
             label="Professional"
             name="professional"
             value={input.triptype}
-            checked={input.triptype === 'professional'}
+            // checked={input.triptype === 'professional'}
             onChange={handleClickChange}
           />
           <Form.Button color="teal">Submit</Form.Button>

@@ -12,16 +12,15 @@ const TripContainer = () => {
     filteredContentLabel: ''
   })
   useEffect(() => {
-    axios.get('https://brudnak-wanderlust.herokuapp.com/experiences/experiences')
+    axios
+    .get('https://brudnak-wanderlust.herokuapp.com/experiences/experiences')
     .then(res => {
       console.log(res)
       setData(res.data)
     })
   }, [])
 
-  const states = [  
-    'AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY'
-  ]
+  
   const sortBy = s => {
     axios.get(`https://brudnak-wanderlust.herokuapp.com/experiences/experiences/?sort=${s}`)
     .then(res => {
@@ -39,9 +38,7 @@ const TripContainer = () => {
   if(!token){
    return <Redirect to="/"/>
   } 
-  // else if(!data){
-  //   return <Segment loading padded='very'></Segment>
-  // }
+
   return (
     
     <Segment>
