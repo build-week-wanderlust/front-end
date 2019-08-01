@@ -13,19 +13,6 @@ class ContactPage extends React.Component {
         <Header dividing as="h3">
           Contact Us
         </Header>
-        <Segment>
-        <Placeholder fluid>
-          <Placeholder.Header image>
-            <Placeholder.Line />
-            <Placeholder.Line />
-          </Placeholder.Header>
-          <Placeholder.Paragraph>
-            <Placeholder.Line />
-            <Placeholder.Line />
-            <Placeholder.Line />
-          </Placeholder.Paragraph>
-        </Placeholder>
-      </Segment>
         <ContactForm />
       </Segment>
     );

@@ -1,10 +1,11 @@
 import React from 'react';
-import { Segment, Menu } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import SearchBar from '../components/SearchBar'
 import '../styles/Header.css'
+import Settings from './Settings'
 
-const Header = () => {
+const Header = (props) => {
   return (
         <Menu fluid className="header-menu">
           <Link exact to="/">
@@ -23,6 +24,7 @@ const Header = () => {
             </Menu.Item>
           </Link>
           <Menu.Item position='right'>
+            <Settings/>
             <SearchBar />
           </Menu.Item>
         </Menu>
