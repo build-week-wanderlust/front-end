@@ -8,9 +8,9 @@ const ExperienceDetail = props => {
   const [input, setInput] = useState({
     title: "",
     description: "",
-    price: 0,
     city: "",
     state: "",
+    price: 0,
     triptype: ""
   })
   useEffect( () => {
@@ -24,17 +24,12 @@ const ExperienceDetail = props => {
   console.log(props.match.params)
 
   const handleTextChange = e => {
-    console.log("New Experience input value", e.target.value)
+    console.log("Edit Experience input value", e.target.value)
     setInput({
       [e.target.name]: e.target.value
     })
   }
-  const handleClickChange = e => {
-    setInput({
-      ...input,
-      triptype: e.target.value
-    })
-  }
+  
   
   const handleDelete = e => {
     e.preventDefault();
@@ -44,7 +39,7 @@ const ExperienceDetail = props => {
       console.log(res)
     })
     .catch(err => {
-      console.error(err)
+      console.error('delete error', err)
     })
   }
   const handleEditClick = e => {
@@ -53,7 +48,14 @@ const ExperienceDetail = props => {
 
   const handleEditSubmit = e => {
     e.preventDefault();
-
+    axios
+    .put(`https://brudnak-wanderlust.herokuapp.com/experiences/data/experience/${props.match.params.id}`, input)
+    .then(res => {
+      console.log(res.data)
+    })
+    .catch(err => {
+      console.error('edit error', err)
+    })
   }
 
   return (
@@ -76,9 +78,8 @@ const ExperienceDetail = props => {
             </Card.Content>
             <Button color="teal">Book Now!</Button>
             {!edit
-             ? <Button color="red" onClick={handleEditClick}>Edit Tour</Button>
-             :<div></div>
-            }
+             ? <Button color="red" style={{ marginTop: '10px'}} onClick={handleEditClick}>Edit Tour</Button>
+             :<div></div>}
 
           </Card>
         }
@@ -145,7 +146,7 @@ const ExperienceDetail = props => {
               <Form.Button color="teal">Submit</Form.Button>
 
             </Form>
-          <Button style={{ marginTop: '10px'}}negative>Delete</Button>
+          <Button style={{ marginTop: '10px'}} negative onClick={handleDelete}>Delete</Button>
         </Segment>
         }
       </Container>

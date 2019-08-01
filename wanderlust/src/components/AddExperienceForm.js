@@ -1,13 +1,14 @@
 import React, {useState} from "react"
 import { Form, Segment, Header } from "semantic-ui-react"
+import axios from 'axios'
 
 const AddExperienceForm = () => {
   const [input, setInput] = useState({
     title: "",
     description: "",
-    price: 0,
     city: "",
     state: "",
+    price: 0,
     triptype: ""
   })
 
@@ -19,16 +20,24 @@ const AddExperienceForm = () => {
       [e.target.name]: e.target.value
     })
   }
+
+  const handleAddSubmit = e => {
+    e.preventDefault();
+    axios
+    .put('`https://brudnak-wanderlust.herokuapp.com/experiences/experience', input)
+  }
+
   const handleClickChange = e => {
     setInput({
       ...input,
       triptype: e.target.value
     })
   }
+
   return (
     <Segment>
       <Header dividing as="h3">Add New Experience</Header>
-      <Form>
+      <Form onSubmit={handleAddSubmit}>
           <Form.Group widths="equal">
             <Form.Input 
               required 
@@ -84,7 +93,7 @@ const AddExperienceForm = () => {
             value={input.triptype}
             onChange={() => setInput({...input, triptype: 'professional'})}
           />
-          <Form.Button color="teal">Submit</Form.Button>
+          <Form.Button color="teal" onClick={handleAddSubmit}>Submit</Form.Button>
         </Form>
     </Segment>
   )
