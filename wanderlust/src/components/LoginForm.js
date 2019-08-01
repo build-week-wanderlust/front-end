@@ -4,6 +4,11 @@ import React, {useState} from 'react'
 import axios from 'axios'
 
 const LoginForm = (props) => {
+  // const [userId, setUserId] = useState({
+  //   "userid": null,
+  //   "username": "",
+  //   "profile": null
+  // })
   const [input, setInput] = useState({
     username: '',
     password: ''
@@ -12,13 +17,13 @@ const LoginForm = (props) => {
   console.log('state',input)
   
   const handleChange = e => {
-    console.log(e.target.value)
+    console.log('login input change', e.target.value)
     setInput({
       ...input,
       [e.target.name]: e.target.value
     });
   }
-
+  
   const handleLoginSubmit = e => {
     e.preventDefault();
     axios
@@ -30,7 +35,7 @@ const LoginForm = (props) => {
       }
     })
     .then(res => {
-      console.log(res)
+      console.log('login submit results', res)
       window.localStorage.setItem('token', JSON.stringify(res.data.access_token))
       props.history.push('/experiences')
     })

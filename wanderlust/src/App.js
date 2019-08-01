@@ -26,4 +26,4 @@ function App() {
 export default App;
 
 
-// https://brudnak-wanderlust.herokuapp.com/experiences/experiences/?sort=price
+// https://brudnak-wanderlust.herokuapp.com/
