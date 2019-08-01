@@ -72,19 +72,17 @@ const AddExperienceForm = () => {
             name="description"
             value={input.description}
           />
-          <Form.Radio 
+          <Form.Checkbox 
             label="Private"
             name="private"
             value={input.triptype}
-            // checked={input.triptype === 'private'}
-            onChange={handleClickChange}
+            onChange={() => setInput({...input, triptype: 'private'})}
           />
-          <Form.Radio 
+          <Form.Checkbox
             label="Professional"
             name="professional"
             value={input.triptype}
-            // checked={input.triptype === 'professional'}
-            onChange={handleClickChange}
+            onChange={() => setInput({...input, triptype: 'professional'})}
           />
           <Form.Button color="teal">Submit</Form.Button>
         </Form>
