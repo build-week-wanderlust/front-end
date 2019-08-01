@@ -56,6 +56,7 @@ const ExperienceDetail = props => {
     .catch(err => {
       console.error('edit error', err)
     })
+    setEdit(!edit)
   }
 
   return (
@@ -143,7 +144,7 @@ const ExperienceDetail = props => {
                 value={input.triptype}
                 onChange={() => setInput({...input, triptype: 'professional'})}
               />
-              <Form.Button color="teal">Submit</Form.Button>
+              <Form.Button color="teal" onClick={handleEditSubmit}>Submit</Form.Button>
 
             </Form>
           <Button style={{ marginTop: '10px'}} negative onClick={handleDelete}>Delete</Button>

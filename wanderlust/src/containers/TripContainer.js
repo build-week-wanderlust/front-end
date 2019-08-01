@@ -13,7 +13,7 @@ const TripContainer = () => {
   })
   useEffect(() => {
     axios
-    .get('https://brudnak-wanderlust.herokuapp.com/experiences/experiences')
+    .get('https://brudnak-wanderlust.herokuapp.com/experiences/allexperiences')
     .then(res => {
       console.log(res)
       setData(res.data)
@@ -22,13 +22,13 @@ const TripContainer = () => {
 
   
   const sortBy = s => {
-    axios.get(`https://brudnak-wanderlust.herokuapp.com/experiences/experiences/?sort=${s}`)
+    axios.get(`https://brudnak-wanderlust.herokuapp.com/experiences/experiences/?sort=${s}&page=0&size=1000`)
     .then(res => {
       console.log(res)
       setData(res.data)
       console.log(s)
       setFilter({
-        filteredContentLabel: s
+        filteredContentLabel: s.toUpperCase()
       })
     })
   }
