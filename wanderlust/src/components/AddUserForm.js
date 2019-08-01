@@ -1,4 +1,4 @@
-import { Segment, Header, Form, Button, Grid, Message } from 'semantic-ui-react'
+import { Segment, Header, Form, Button, Grid } from 'semantic-ui-react'
 import { Redirect } from 'react-router-dom'
 import React, { useState } from 'react'
 import axios from 'axios'

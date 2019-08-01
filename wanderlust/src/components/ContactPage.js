@@ -1,5 +1,5 @@
 import React from 'react'
-import { Segment, Header, Placeholder } from 'semantic-ui-react'
+import { Segment, Header } from 'semantic-ui-react'
 import ContactForm from './ContactForm'
 
 class ContactPage extends React.Component {

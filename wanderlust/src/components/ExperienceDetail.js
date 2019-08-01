@@ -21,6 +21,15 @@ const ExperienceDetail = props => {
       setInfo(res.data)
     })
   }, [])
+
+  useEffect(() => {
+    axios
+    .get('https://brudnak-wanderlust.herokuapp.com/users/currentuser',)
+      .then(res => {
+        console.log('user info', res)
+      })
+  },[])
+
   console.log(props.match.params)
 
   const handleTextChange = e => {
@@ -30,6 +39,7 @@ const ExperienceDetail = props => {
     })
   }
   
+  console.log('info state', info)
   
   const handleDelete = e => {
     e.preventDefault();
@@ -42,6 +52,7 @@ const ExperienceDetail = props => {
       console.error('delete error', err)
     })
   }
+  
   const handleEditClick = e => {
     setEdit(!edit)
   }
